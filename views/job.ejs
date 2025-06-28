@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+<h2><%= job ? 'Edit Job' : 'New Job' %></h2>
+<form method="POST" action="<%= job ? '/jobs/update/' + job._id : '/jobs' %>">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+  <label
+    >Company:
+    <input name="company" value="<%= job ? job.company : '' %>" /></label
+  ><br />
+  <label
+    >Position:
+    <input name="position" value="<%= job ? job.position : '' %>" /></label
+  ><br />
+  <label
+    >Status: <input name="status" value="<%= job ? job.status : '' %>" /></label
+  ><br />
+  <button type="submit"><%= job ? 'Update' : 'Create' %></button>
+</form>
+<%- include("partials/footer") %>
