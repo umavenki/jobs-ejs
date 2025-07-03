@@ -6,7 +6,11 @@ router.get("/", (req, res) => {
     req.session.secretWord = "syzygy";
   }
 
-  res.render("secretWord", { secretWord: req.session.secretWord });
+  // res.render("secretWord", { secretWord: req.session.secretWord });
+  res.render("secretWord", {
+    secretWord: req.session.secretWord,
+    _csrf: res.locals._csrf, // 👈 this line is required
+  });
 });
 
 router.post("/", (req, res) => {
