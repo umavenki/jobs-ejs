@@ -24,7 +24,7 @@ router.get("/", getAllJobs);
 
 // Show form to create a new job
 router.get("/new", (req, res) =>
-  res.render("job", { job: null, csrfToken: res.locals._csrf })
+  res.render("job", { job: null, _csrf: res.locals._csrf })
 );
 
 // Create a new job
